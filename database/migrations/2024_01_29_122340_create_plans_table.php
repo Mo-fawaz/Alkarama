@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreign('player_id')->references('id')->on('players')->onDelete('cascade');
             $table->unsignedBigInteger('game_id');
             $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade');
-            $table->string('status');
+            $table->enum('status',[0=>'main',1=>'beanch']);
             $table->timestamps();
         });
     }

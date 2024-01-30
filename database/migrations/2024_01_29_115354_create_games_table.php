@@ -17,10 +17,11 @@ return new class extends Migration
             $table->id();
             $table->uuid();
             $table->timestamp('datatime');
-            $table->string('status');
+            $table->enum('status',[0=>'not started',1=>'finished']);
             $table->string('channel');
             $table->string('round');
             $table->string('stadium');
+            $table->string('plan');
             $table->unsignedBigInteger('season_id');
             $table->foreign('season_id')->references('id')->on('seasons')->onDelete('cascade');
             $table->unsignedBigInteger('club_id');

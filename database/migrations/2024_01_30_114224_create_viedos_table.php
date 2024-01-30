@@ -13,9 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('games', function (Blueprint $table) {
-            $table->unsignedBigInteger('plan_id');
-            $table->foreign('plan_id')->references('id')->on('plans')->onDelete('cascade');
+        Schema::create('viedos', function (Blueprint $table) {
+            $table->id();
+            $table->uuid();
+            $table->string('url');
+            $table->string('description');
+            $table->morphs('viedo_able');
+            $table->timestamps();
         });
     }
 
@@ -26,9 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('games', function (Blueprint $table) {
-            $table->dropForeign(['plan_id']);
-            $table->dropColumn('plan_id');
-        });
+        Schema::dropIfExists('viedos');
     }
 };

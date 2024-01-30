@@ -13,13 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('statistics', function (Blueprint $table) {
+        Schema::create('information', function (Blueprint $table) {
             $table->id();
             $table->uuid();
-            $table->string('name');
-            $table->json('value');
-            $table->unsignedBigInteger('game_id');
-            $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade');
+            $table->string('title');
+            $table->string('content');
+            $table->string('image');
+            $table->integer('reads');
+            $table->enum('type',['news','regular','slider','startegy']);
+            $table->morphs('information_able');
             $table->timestamps();
         });
     }
@@ -31,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('statistics');
+        Schema::dropIfExists('information');
     }
 };

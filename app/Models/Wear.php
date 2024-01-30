@@ -11,12 +11,14 @@ class Wear extends Model
     protected $fillable = [
         'uuid',
         'image',
-        'season_id'
+        'season_id',
+        'sport_id',
     ];
     protected $casts = [
         'uuid'=>'string',
         'image'=>'string',
         'season_id'=>'integer',
+        'sport_id'=>'integer'
     ];
 
 }

@@ -18,7 +18,7 @@ class Game extends Model
         'season_id',
         'club_id',
         'club2_id',
-        'plan_id',
+        'plan',
     ];
     protected $casts = [
         'uuid'=>'string',
@@ -30,7 +30,7 @@ class Game extends Model
         'season_id'=>'string',
         'club_id'=>'integer',
         'club2_id'=>'integer',
-        'plan_id'=>'integer',
+        'plan'=>'string',
     ];
 
 }

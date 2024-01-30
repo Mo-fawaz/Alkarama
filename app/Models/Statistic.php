@@ -17,7 +17,7 @@ class Statistic extends Model
     protected $casts = [
         'uuid'=>'string',
         'name'=>'string',
-        'value'=>'string',
+        'value'=>'json',
         'game_id'=>'integer',
     ];
 

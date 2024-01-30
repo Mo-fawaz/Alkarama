@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->uuid();
             $table->string('name');
-            $table->string('jop_type');
+            $table->enum('job_type',[0=>'manager', 1=>'coach']);
             $table->string('work');
             $table->string('image');
             $table->unsignedBigInteger('sport_id');
