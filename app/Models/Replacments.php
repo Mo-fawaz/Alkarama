@@ -11,12 +11,14 @@ class Replacments extends Model
     protected $fillable = [
         'uuid',
         'inplayer_id',
-        'outplayer_id'
+        'outplayer_id',
+        'game_id',
     ];
     protected $casts = [
         'uuid'=>'string',
         'inplayer_id'=>'integer',
-        'outplayer_id'=>'integer'
+        'outplayer_id'=>'integer',
+        'game_id'=>'integer',
     ];
 
 }
