@@ -27,7 +27,7 @@ class Game extends Model
         'channel'=>'string',
         'round'=>'string',
         'stadium'=>'string',
-        'season_id'=>'string',
+        'season_id'=>'integer',
         'club_id'=>'integer',
         'club2_id'=>'integer',
         'plan'=>'string',

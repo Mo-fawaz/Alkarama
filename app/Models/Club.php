@@ -20,6 +20,6 @@ class Club extends Model
         'name'=>'string',
         'address'=>'string',
         'logo'=>'string',
-        'sport_id'=>'string'
+        'sport_id'=>'integer',
     ];
 }

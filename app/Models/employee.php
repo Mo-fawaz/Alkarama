@@ -22,7 +22,7 @@ class employee extends Model
         'jop_type'=>'string',
         'work'=>'string',
         'image'=>'string',
-        'sport_id'=>'string',
+        'sport_id'=>'integer',
     ];
 
 }

@@ -22,7 +22,7 @@ class association extends Model
         'images'=>'string',
         'description'=>'string',
         'country'=>'string',
-        'sport_id'=>'string',
+        'sport_id'=>'integer',
     ];
 
 }
