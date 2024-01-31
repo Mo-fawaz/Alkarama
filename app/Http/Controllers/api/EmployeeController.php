@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\api;
 
-use App\Models\Sport;
+use App\Http\Controllers\Controller;
+use App\Models\employee;
 use Illuminate\Http\Request;
 
-class SportController extends Controller
+class EmployeeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,16 +14,6 @@ class SportController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
     {
         //
     }
@@ -41,21 +32,10 @@ class SportController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Sport  $sport
+     * @param  \App\Models\employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function show(Sport $sport)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Sport  $sport
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Sport $sport)
+    public function show(employee $employee)
     {
         //
     }
@@ -64,10 +44,10 @@ class SportController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Sport  $sport
+     * @param  \App\Models\employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Sport $sport)
+    public function update(Request $request, employee $employee)
     {
         //
     }
@@ -75,10 +55,10 @@ class SportController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Sport  $sport
+     * @param  \App\Models\employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Sport $sport)
+    public function destroy(employee $employee)
     {
         //
     }

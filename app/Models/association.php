@@ -13,7 +13,7 @@ class association extends Model
         'boss',
         'images',
         'description',
-        'counry',
+        'country',
         'sport_id'
     ];
     protected $casts = [
