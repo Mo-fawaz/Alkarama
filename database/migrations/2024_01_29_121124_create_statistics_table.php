@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->uuid();
             $table->string('name');
-            $table->string('value');
+            $table->json('value');
             $table->unsignedBigInteger('game_id');
             $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade');
             $table->timestamps();
