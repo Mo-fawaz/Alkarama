@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Ramsey\Uuid\Type\Integer;
 
 class association extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'uuid',
         'boss',
@@ -16,6 +18,7 @@ class association extends Model
         'country',
         'sport_id'
     ];
+
     protected $casts = [
         'uuid'=>'string',
         'boss'=>'string',
@@ -25,4 +28,4 @@ class association extends Model
         'sport_id'=>'integer',
     ];
 
-}
+   }
