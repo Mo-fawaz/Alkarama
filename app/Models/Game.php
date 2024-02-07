@@ -10,7 +10,7 @@ class Game extends Model
     use HasFactory;
     protected $fillable = [
         'uuid',
-        'datatime',
+        'datetime',
         'status',
         'channel',
         'round',
@@ -22,7 +22,7 @@ class Game extends Model
     ];
     protected $casts = [
         'uuid'=>'string',
-        'datatime'=>'datetime',
+        'datetime'=>'datetime',
         'status'=>'string',
         'channel'=>'string',
         'round'=>'string',
