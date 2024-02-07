@@ -15,13 +15,13 @@ class Replacments extends Model
         'uuid',
         'inplayer_id',
         'outplayer_id',
-        'game_id'
+        'game_id',
     ];
     protected $casts = [
         'uuid'=>'string',
         'inplayer_id'=>'integer',
         'outplayer_id'=>'integer',
-        'game_id'=>'integer'
+        'game_id'=>'integer',
     ];
     
     public function inplayer_id(): object

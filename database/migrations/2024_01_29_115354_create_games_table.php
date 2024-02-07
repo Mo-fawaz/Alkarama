@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('games', function (Blueprint $table) {
             $table->id();
             $table->uuid();
-            $table->timestamp('datatime');
+            $table->date('datatime');
             $table->enum('status',[0=>'not started',1=>'finished']);
             $table->string('channel');
             $table->string('round');

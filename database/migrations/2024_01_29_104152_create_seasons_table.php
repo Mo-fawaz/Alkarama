@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->uuid();
             $table->string('name');
-            $table->timestamp('start');
-            $table->timestamp('end');
+            $table->date('start');
+            $table->date('end');
             $table->timestamps();
         });
     }

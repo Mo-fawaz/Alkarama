@@ -13,13 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('bosses', function (Blueprint $table) {
-            $table->id();
-            $table->uuid();
-            $table->string('name');
-            $table->date('start');
-            $table->string('image');
-            $table->timestamps();
+        Schema::table('replacments', function (Blueprint $table) {
+            $table->unsignedBigInteger('game_id');
+            $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade');
         });
     }
 
@@ -30,6 +26,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bosses');
+        Schema::table('replacments', function (Blueprint $table) {
+            $table->dropForeign(['game_id']);
+            $table->dropColumn('game_id');
+        });
     }
 };

@@ -20,13 +20,12 @@ class association extends Model
     ];
 
     protected $casts = [
-
-        'uuid' => 'string',
-        'boss' => 'string',
-        'images' => 'string',
-        'description' => 'string',
-        'country' => 'string',
-        'sport_id' => 'string',
+        'uuid'=>'string',
+        'boss'=>'string',
+        'images'=>'string',
+        'description'=>'string',
+        'country'=>'string',
+        'sport_id'=>'integer',
     ];
 
    }
