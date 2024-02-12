@@ -3,11 +3,18 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\GameResource;
+use App\Http\Resources\PlanResource;
+use App\Http\Traits\GeneralTrait;
+use App\Models\Game;
 use App\Models\plan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class PlanController extends Controller
 {
+    use GeneralTrait;
+    
     /**
      * Display a listing of the resource.
      *
@@ -35,9 +42,26 @@ class PlanController extends Controller
      * @param  \App\Models\plan  $plan
      * @return \Illuminate\Http\Response
      */
-    public function show(plan $plan)
+    public function show(plan $plan,$uuid)
     {
-        //
+        $message = ['uuid.exists' => 'this game is not exists'];
+        $validator = Validator::make(
+            ['uuid' => $uuid],
+            ['uuid' => 'required|exists:games,uuid|string'],
+            $message
+        );
+        if ($validator->fails()) {
+            return $this->apiResponse(Null,False,$validator->errors(),422);
+        }
+        else
+        {
+            $game=Game::whereuuid($uuid)->first();
+            $data['game']=GameResource::make($game);
+            $data['plan']=PlanResource::collection($game->plans);
+            $data['statistic']=$game->statistic;
+            $data['replacments']=$game->replacmentsin;
+        }
+        return $this->apiResponse($data);
     }
 
     /**

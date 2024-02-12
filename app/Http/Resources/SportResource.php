@@ -2,12 +2,9 @@
 
 namespace App\Http\Resources;
 
-use App\Models\Season;
-
-
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class SeasonResource extends JsonResource
+class SportResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,11 +14,10 @@ class SeasonResource extends JsonResource
      */
     public function toArray($request)
     {
-        return  [
-            'name'=>$this->name,
-            'uuid'=>$this->uuid,
-            'start'=>$this->start->year,
-            'end'=>$this->end->year,
-           ];
+        return [
+            'uuid' => $this->uuid,
+            'name' => $this->name,
+            'image' => $this->image,
+        ];
     }
 }
