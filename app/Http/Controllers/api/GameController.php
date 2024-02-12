@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\GameResource;
+use App\Http\Traits\GeneralTrait;
 use App\Models\game;
 use Illuminate\Http\Request;
 
 class GameController extends Controller
 {
+    use GeneralTrait;
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +18,11 @@ class GameController extends Controller
      */
     public function index()
     {
-        //
+        try {
+            return $this->apiResponse(GameResource::collection(game::all()));
+        } catch (\Throwable $th) {
+            return $this->apiResponse(null,false,$th->getMessage(),500);
+        }
     }
 
     /**

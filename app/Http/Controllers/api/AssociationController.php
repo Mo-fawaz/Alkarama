@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Traits\GeneralTrait;
 use App\Models\association;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class AssociationController extends Controller
 {
+    use GeneralTrait;
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +18,7 @@ class AssociationController extends Controller
      */
     public function index()
     {
-        //
+       
     }
 
     /**
