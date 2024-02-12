@@ -1,10 +1,15 @@
 <?php
 
 namespace App\Http\Controllers\api;
-
+use App\Http\Traits\GeneralTrait;
 use App\Http\Controllers\Controller;
 use App\Http\Traits\GeneralTrait;
 use App\Models\association;
+use App\Http\Resources\associationResource;
+
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -16,9 +21,11 @@ class AssociationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    use GeneralTrait;
+
     public function index()
     {
-       
+        return $this->apiResponse([associationResource::collection(association::all())]);
     }
 
     /**

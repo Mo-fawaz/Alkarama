@@ -1,13 +1,11 @@
 <?php
 
 namespace App\Http\Resources;
-
-use App\Models\Season;
-
+use App\Http\Resources\associationResource;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class SeasonResource extends JsonResource
+class TopfanResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -19,9 +17,7 @@ class SeasonResource extends JsonResource
     {
         return  [
             'name'=>$this->name,
-            'uuid'=>$this->uuid,
-            'start'=>$this->start->year,
-            'end'=>$this->end->year,
+        'association'=>associationResource::make($this->association),
            ];
     }
 }
