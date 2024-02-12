@@ -16,7 +16,9 @@ class TopfanController extends Controller
      */
     public function index()
     {
-        return  TopfanResource::collection(Topfan::all());
+        return TopfanResource::collection(Topfan::all());
+
+        
         
     }
 
