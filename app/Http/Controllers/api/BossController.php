@@ -4,10 +4,13 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Models\boss;
+use App\Http\Resources\BossResource;
 use Illuminate\Http\Request;
+use App\Http\Traits\GeneralTrait;
 
 class BossController extends Controller
 {
+    use GeneralTrait;
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +18,13 @@ class BossController extends Controller
      */
     public function index()
     {
-        //
+        try {
+            $bosses = Boss::all();
+            return $this->apiResponse(BossResource::collection($bosses));  
+        }catch(\Exception $ex){
+            return $this->apiResponse(null,false,$ex->getMessage(),500);
+        }
+        
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Sport;
 
 class employee extends Model
 {
@@ -24,5 +25,9 @@ class employee extends Model
         'image'=>'string',
         'sport_id'=>'integer',
     ];
+
+    public function sport(): object {
+        return $this->belongsTo(Sport::class);
+    }
 
 }

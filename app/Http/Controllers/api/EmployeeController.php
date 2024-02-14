@@ -5,9 +5,12 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Models\employee;
 use Illuminate\Http\Request;
+use App\Http\Resources\EmployeeResource;
+use App\Http\Traits\GeneralTrait;
 
 class EmployeeController extends Controller
 {
+    use GeneralTrait;
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +18,12 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        //
+        try{
+            $employees = Employee::all();
+            return EmployeeResource::collection($employees);
+        }catch(\Exception $ex){
+            return $this->apiResponse(null,false,$ex->getMessage(),500);
+        }
     }
 
     /**
@@ -35,9 +43,16 @@ class EmployeeController extends Controller
      * @param  \App\Models\employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function show(employee $employee)
+    public function show(employee $employee, $uuid)
     {
-        //
+        
+        try{
+            $employe=$employee->where('uuid',$uuid)->first();
+            // dd($employe[0]->uuid);
+            return $this->apiResponse(EmployeeResource::make($employe));
+        }catch(\Exception $ex){
+            return $this->apiResponse(null,false,$ex->getMessage(),500);
+        }
     }
 
     /**

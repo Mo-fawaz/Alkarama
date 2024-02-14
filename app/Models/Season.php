@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Prime;
 
 class Season extends Model
 {
@@ -20,5 +21,9 @@ class Season extends Model
         'start'=>'datetime',
         'end'=>'datetime'
     ];
+
+    public function primes() : object {
+        return $this->hasMany(Prime::class);
+    }
 
 }
