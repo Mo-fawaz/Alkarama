@@ -20,5 +20,13 @@ class Plan extends Model
         'game_id'=>'integer',
         'status'=>'string',
     ];
+    public function player():object
+    {
+        return $this->belongsTo(Player::class);
+    }
+    public function game():object
+    {
+        return $this->belongsTo(Game::class);
+    }
 
 }

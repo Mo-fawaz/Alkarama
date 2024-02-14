@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\api;
+use App\Http\Resources\TopfanResource;
 
 use App\Http\Controllers\Controller;
 use App\Models\topfan;
@@ -15,7 +16,10 @@ class TopfanController extends Controller
      */
     public function index()
     {
-        //
+        return TopfanResource::collection(Topfan::all());
+
+        
+        
     }
 
     /**

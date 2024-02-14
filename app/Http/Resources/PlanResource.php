@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Resources;
+
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class SeasonResource extends JsonResource
+class PlanResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -13,11 +14,11 @@ class SeasonResource extends JsonResource
      */
     public function toArray($request)
     {
-        return  [
-            'name'=>$this->name,
-            'uuid'=>$this->uuid,
-            'start'=>$this->start->year,
-            'end'=>$this->end->year,
-           ];
+        return [
+            'uuid' => $this->uuid,
+            'players' => PlayerResource::make($this->player),
+          //  'game' => GameResource::make($this->game),
+            'status' => $this->status,
+        ];
     }
 }

@@ -17,8 +17,11 @@ class Statistic extends Model
     protected $casts = [
         'uuid'=>'string',
         'name'=>'string',
-        'value'=>'json',
+        'value'=>'string',
         'game_id'=>'integer',
     ];
-
+    public function game():object
+    {
+        return $this->belongsTo(Game::class);
+    }
 }

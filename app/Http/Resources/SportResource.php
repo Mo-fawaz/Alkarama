@@ -14,6 +14,10 @@ class SportResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'uuid' => $this->uuid,
+            'name' => $this->name,
+            'image' => $this->image,
+        ];
     }
 }
