@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\SeasonController;
 use App\Http\Controllers\api\LeagueController;
-use App\Http\Controllers\api\associationController;
+use App\Http\Controllers\api\AssociationController;
 use App\Http\Controllers\api\TopfanController;
 
 
@@ -51,7 +51,7 @@ Route::prefix('/league')->group(function () {
 
 //association
 Route::prefix('/association')->group(function () {
-    Route::get('/index',[associationController::class,'index'])->name('association.index');
+    Route::get('/index',[AssociationController::class,'index'])->name('association.index');
 });
 
 //Topfan

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Traits\GeneralTrait;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\SeasonResource;
-use App\Models\season;
+use App\Models\Season;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Validation\ValidatesRequests;

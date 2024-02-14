@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\api;
 use App\Http\Resources\TopfanResource;
+use App\Http\Traits\GeneralTrait;
 
 use App\Http\Controllers\Controller;
-use App\Models\topfan;
+use App\Models\Topfan;
 use Illuminate\Http\Request;
 
 class TopfanController extends Controller
@@ -14,9 +15,10 @@ class TopfanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    use GeneralTrait;
     public function index()
     {
-        return TopfanResource::collection(Topfan::all());
+        return $this->apiResponse([TopfanResource::collection(Topfan::all())]);
 
         
         
