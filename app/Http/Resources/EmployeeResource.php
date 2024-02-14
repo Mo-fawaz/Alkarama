@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Resources;
+
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Models\Employee;
 use App\Http\Resources\SportResource;
-
-
-class ClubResource extends JsonResource
+class EmployeeResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,9 +18,10 @@ class ClubResource extends JsonResource
         return [
             'uuid'=>$this->uuid,
             'name'=>$this->name,
-            'address'=>$this->address,
-            'logo'=>$this->logo,
-            'sport'=> SportResource::make($this->sport),
+            'jop_type'=>$this->jop_type,
+            'work'=>$this->work,
+            'image'=>$this->image,
+            'sport'=>SportResource::make($this->sport),
         ];
     }
 }

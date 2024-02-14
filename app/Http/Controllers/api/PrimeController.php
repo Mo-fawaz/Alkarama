@@ -4,10 +4,13 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Models\prime;
+use App\Http\Resources\PrimeResource;
 use Illuminate\Http\Request;
+use App\Http\Traits\GeneralTrait;
 
 class PrimeController extends Controller
 {
+    use GeneralTrait;
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +18,13 @@ class PrimeController extends Controller
      */
     public function index()
     {
-        //
+        try{
+           $primes = Prime::all();
+        return $this->apiResponse(PrimeResource::collection($primes)); 
+        }
+        catch(\Exception $ex){
+            return $this->apiResponse(null,false,$ex->getMessage(),500);
+        }
     }
 
     /**

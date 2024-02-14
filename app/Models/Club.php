@@ -22,4 +22,8 @@ class Club extends Model
         'logo'=>'string',
         'sport_id'=>'integer',
     ];
+
+    public function sport(): object {
+        return $this->belongsTo(Sport::class);
+    }
 }

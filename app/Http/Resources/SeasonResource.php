@@ -1,10 +1,6 @@
 <?php
 
 namespace App\Http\Resources;
-
-use App\Models\Season;
-
-
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class SeasonResource extends JsonResource
